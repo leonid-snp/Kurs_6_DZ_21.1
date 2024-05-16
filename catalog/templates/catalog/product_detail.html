@@ -2,27 +2,21 @@
 {% load my_tags %}
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Каталог</h1>
-    <p class="lead">Каталог - магазин по продажи электротехники</p>
+    <h1 class="display-4">Подробно</h1>
 </div>
 
 <div class="container">
     <div class="row text-center">
-        <div class="col-3">
+        <div class="col-3 mx-auto">
             <div class="card">
                 <div class="card-body">
                     <img src="{{ object.photo|media_filter }}" class="img-fluid" alt="...">
                     <h4 class="card-title">{{ object.name }}</h4>
-                    <p class="card-text">Описание: {{ object.description }}
-                    </p>
-                    <p class="card-text"> Категория: {{ object.category }}
-                    </p>
-                    <p class="card-text"> Цена: {{ object.price }}
-                    </p>
-                    <p class="card-text"> Дата создания: {{ object.created_at }}
-                    </p>
-                    <p class="card-text"> Дата изменения: {{ object.updated_at }}
-                    </p>
+                    <p class="card-text">Описание: {{ object.description }}</p>
+                    <p class="card-text"> Категория: {{ object.category }}</p>
+                    <p class="card-text"> Цена: {{ object.price }}</p>
+                    <p class="card-text"> Дата создания: {{ object.created_at }}</p>
+                    <p class="card-text"> Дата изменения: {{ object.updated_at }}</p>
                     <a href="{% url 'catalog:page_1' %}" class="btn btn-primary">Назад</a>
                 </div>
             </div>
