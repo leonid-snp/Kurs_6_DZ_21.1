@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "kurs-6-dz-21-1"
+version = "0.1.0"
+description = ""
+authors = ["leonid Petrov <leonidpetrov637@gmail.com>"]
+readme = "README.md"
+packages = [{include = "kurs_6_dz_21"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
