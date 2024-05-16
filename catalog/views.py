@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
 
 from catalog.models import Product, Contact
 
@@ -14,42 +14,23 @@ class ProductCreateView(CreateView):
     success_url = reverse_lazy("catalog:page_1")
 
 
-class Product1ListView(ListView):
+class ProductListView(ListView):
     model = Product
-    template_name = "catalog/home_1.html"
-
-
-class Product2ListView(ListView):
-    model = Product
-    template_name = "catalog/home_2.html"
 
 
 class ProductDetailListView(DetailView):
     model = Product
-    template_name = "catalog/catalog_detail.html"
 
 
-def home(request):
-    context = {
-        "title": 'Главная страница'
-    }
-    return render(request, "catalog/home.html", context)
+class ContactListView(ListView):
+    model = Contact
 
 
-def contacts(request):
-    contact_list = Contact.objects.all()
-    if request.method == "POST":
-        name = request.POST.get("name")
-        phone = request.POST.get("phone")
-        message = request.POST.get("message")
+class ContactCreateView(CreateView):
+    model = Contact
+    fields = ("name", "phone", "message")
+    success_url = reverse_lazy("catalog:contacts_list")
 
-        Contact.objects.create(name=name, phone=phone, message=message)
 
-        print(f"\n\nИмя - {name}\n" f"Телефон - {phone}\n" f"Сообщение - {message}\n\n")
-
-    context = {
-        'object_list': contact_list,
-        "title": 'Контакты'
-    }
-
-    return render(request, "catalog/contact.html", context)
+class HomeTemplateView(TemplateView):
+    template_name = "catalog/home.html"
