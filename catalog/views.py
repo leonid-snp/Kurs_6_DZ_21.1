@@ -1,8 +1,17 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
-from catalog.models import Product, Contact, Category
+from catalog.models import Product, Contact
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    fields = (
+        "name", "description", "photo", "category",
+        "price", "created_at", "updated_at"
+    )
+    success_url = reverse_lazy("catalog:page_1")
 
 
 class Product1ListView(ListView):
@@ -17,7 +26,7 @@ class Product2ListView(ListView):
 
 class ProductDetailListView(DetailView):
     model = Product
-    template_name = "catalog/detail_product.html"
+    template_name = "catalog/catalog_detail.html"
 
 
 def home(request):
@@ -44,32 +53,3 @@ def contacts(request):
     }
 
     return render(request, "catalog/contact.html", context)
-
-
-def add_product(request):
-    category_list = Category.objects.all()
-    if request.method == "POST":
-        name = request.POST.get("name")
-        description = request.POST.get("description")
-        photo = request.FILES.get("photo")
-        category_id = request.POST.get("category")
-        category = Category.objects.get(id=category_id)
-        price = request.POST.get("price")
-        created_at = request.POST.get("created_at")
-        updated_at = request.POST.get("updated_at")
-
-        Product.objects.create(
-            name=name,
-            description=description,
-            photo=photo,
-            category=category,
-            price=price,
-            created_at=created_at,
-            updated_at=updated_at
-        )
-
-    context = {
-        'object_list': category_list,
-        'title': 'Добавить продукт'
-    }
-    return render(request, 'catalog/product_form.html', context)
