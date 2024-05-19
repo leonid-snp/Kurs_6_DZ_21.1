@@ -13,8 +13,8 @@ class Blog(models.Model):
     )
     slug = models.CharField(
         max_length=60,
-        verbose_name='slug',
-        help_text='Введите slug',
+        verbose_name="slug",
+        help_text="Введите slug",
         **NULLABLE
     )
     content = models.TextField(
