@@ -5,16 +5,33 @@
 </div>
 
 <div class="container">
-    <div class="col-6 mx-auto">
-        <div class="card text-center">
-            <div class="card-body">
-                <form method="post" action="" class="form-floating" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-success">Добавить</button>
-                </form>
+    <form method="post" action="" class="form-floating" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="text-header">Добавить продукт</p>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-success">Добавить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mx-auto">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <p class="text-header">Добавить версию продукта</p>
+                        {{ formset.management_form }}
+                        {% for form in formset.forms %}
+                        {{ form.as_p }}
+                        {% if not forloop.last %}
+                        <hr>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 {% endblock %}
