@@ -11,9 +11,19 @@
         <div class="col-3 mt-3">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">{{ object }}</h4>
+                    <h4 class="card-header">{{ object }}</h4>
                     <p class="card-text">
                         {{ object.description|slice:100 }}
+                    </p>
+                    <p class="card-footer">
+                        {% if object.active_version != 'Нет активной версии'%}
+                        Версия:  {{ object.active_version }}
+                        {% else %}
+                        {{ object.active_version }}
+                        {% endif %}
+                        {% if object.number_version %}
+                        - {{ object.number_version }}
+                        {% endif %}
                     </p>
                     <a href="{% url 'catalog:detail_product' object.pk %}" class="btn btn-primary">Посмотреть</a>
                 </div>
