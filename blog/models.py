@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 NULLABLE = {"blank": True, "null": True}
@@ -31,7 +32,7 @@ class Blog(models.Model):
     created_at = models.DateField(
         verbose_name="Дата создания",
         help_text="Укажите дату создания",
-        **NULLABLE
+        default=datetime.now().date()
     )
     is_published = models.BooleanField(
         verbose_name="Публикация",

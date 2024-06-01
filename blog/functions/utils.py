@@ -29,3 +29,9 @@ def send_email(blog):
     s.sendmail(msg["From"], msg["To"], msg.as_string())
 
     s.quit()
+
+
+def get_db_login(keys):
+    env = environ.Env()
+    environ.Env.read_env()
+    return env(keys)
