@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+from blog.functions.utils import get_db_login
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -82,9 +84,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'orm',
         'USER': 'postgres',
-        'PASSWORD': 12345,
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
+        'PASSWORD': get_db_login('PASSWORD_DATABASE'),
+        'HOST': get_db_login('HOST'),
+        'PORT': get_db_login('PORT'),
     }
 }
 

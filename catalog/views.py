@@ -1,7 +1,8 @@
+from django.core.exceptions import ValidationError
 from django.forms import inlineformset_factory
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView
-from catalog.form import ProductForm, VersionForm
+from catalog.form import ProductForm, VersionForm, VersionFormSet
 from catalog.models import Product, Contact
 from version.models import Version
 
@@ -13,7 +14,10 @@ class ProductCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
+        VersionFormset = inlineformset_factory(
+            Product, Version, form=VersionForm,
+            formset=VersionFormSet, extra=1
+        )
         if self.request.method == 'POST':
             context_data['formset'] = VersionFormset(self.request.POST)
         else:
@@ -37,7 +41,8 @@ class ProductUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
+        VersionFormset = inlineformset_factory(
+            Product, Version, form=VersionForm, formset=VersionFormSet, extra=1)
         if self.request.method == 'POST':
             context_data['formset'] = VersionFormset(self.request.POST, instance=self.object)
         else:
