@@ -56,13 +56,11 @@ class Product(models.Model):
         **NULLABLE
     )
     created_at = models.DateField(
-        verbose_name="Дата создания",
-        help_text="Укажите дату создания",
-        default=datetime.now().date()
+        auto_now_add=True,
+        **NULLABLE
     )
     updated_at = models.DateField(
-        verbose_name="Дата изменения",
-        help_text="Укажите дату изменения",
+        auto_now=True,
         **NULLABLE
     )
 
