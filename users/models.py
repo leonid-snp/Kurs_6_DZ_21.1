@@ -3,7 +3,7 @@ from django.db import models
 from catalog.models import NULLABLE
 
 
-class Users(AbstractUser):
+class User(AbstractUser):
     name = None
     email = models.EmailField(
         unique=True,
