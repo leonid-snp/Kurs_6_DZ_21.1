@@ -1,8 +1,5 @@
 from django.db import models
-from datetime import datetime
-
-
-NULLABLE = {"blank": True, "null": True}
+from catalog.models import NULLABLE
 
 
 class Blog(models.Model):
@@ -31,7 +28,6 @@ class Blog(models.Model):
     )
     created_at = models.DateField(
         auto_now_add=True,
-        **NULLABLE
     )
     is_published = models.BooleanField(
         verbose_name="Публикация",

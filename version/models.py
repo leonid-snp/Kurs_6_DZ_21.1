@@ -2,9 +2,6 @@ from django.db import models
 from catalog.models import Product
 
 
-NULLABLE = {"blank": True, "null": True}
-
-
 class Version(models.Model):
     product = models.ForeignKey(
         Product,
