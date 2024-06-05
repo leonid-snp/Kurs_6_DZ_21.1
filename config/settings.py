@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'catalog',
     'blog',
     'version',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,5 @@ CATALOG_PRODUCT_CLEAN = (
     'казино', 'криптовалюта', 'крипта', 'биржа',
     'дешево', 'бесплатно', 'обман', 'полиция', 'радар'
 )
+
+AUTH_USER_MODEL = 'users.User'

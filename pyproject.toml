@@ -8,7 +8,6 @@ packages = [{include = "kurs_6_dz_21"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-django = "^5.0.6"
 psycopg2-binary = "^2.9.9"
 pillow = "^10.3.0"
 black = "^24.4.2"
@@ -16,6 +15,7 @@ ipython = "^8.24.0"
 django-stubs = "^5.0.0"
 pytils = "^0.4.1"
 django-environ = "^0.11.2"
+django = "4.2"
 
 
 [build-system]
