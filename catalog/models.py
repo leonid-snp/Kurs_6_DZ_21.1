@@ -57,9 +57,11 @@ class Product(models.Model):
     )
     created_at = models.DateField(
         auto_now_add=True,
+        **NULLABLE
     )
     updated_at = models.DateField(
         auto_now=True,
+        **NULLABLE
     )
 
     def __str__(self):

@@ -28,6 +28,7 @@ class Blog(models.Model):
     )
     created_at = models.DateField(
         auto_now_add=True,
+        **NULLABLE
     )
     is_published = models.BooleanField(
         verbose_name="Публикация",
