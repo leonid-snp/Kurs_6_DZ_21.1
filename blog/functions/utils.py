@@ -11,14 +11,6 @@ def get_db_login(keys):
     return env(keys)
 
 
-send_mail(
-    subject='Поздравляю!!!',
-    message='Поздравляю ваш пост набрал 100 просмотров, Ура ...',
-    from_email=get_db_login('LOGIN') + '@yandex.ru',
-    recipient_list=[f'{get_db_login('LOGIN')} + @yandex.ru'],
-    fail_silently=False
-)
-
 # def send_email(blog):
 #     env = environ.Env()
 #     environ.Env.read_env()

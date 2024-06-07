@@ -29,6 +29,11 @@ class User(AbstractUser):
         help_text='Введите название страны',
         **NULLABLE
     )
+    token = models.CharField(
+        max_length=100,
+        verbose_name='Token',
+        **NULLABLE
+    )
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
