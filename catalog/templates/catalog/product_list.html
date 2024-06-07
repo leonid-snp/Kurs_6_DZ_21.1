@@ -17,7 +17,7 @@
                     </p>
                     <p class="card-footer">
                         {% if object.active_version != 'Нет активной версии'%}
-                        Версия:  {{ object.active_version }}
+                        Версия: {{ object.active_version }}
                         {% else %}
                         {{ object.active_version }}
                         {% endif %}
@@ -31,6 +31,14 @@
             </div>
         </div>
         {% endfor %}
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2 mt-5" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary">1</button>
+                <button type="button" class="btn btn-primary">2</button>
+                <button type="button" class="btn btn-primary">3</button>
+                <button type="button" class="btn btn-primary">4</button>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

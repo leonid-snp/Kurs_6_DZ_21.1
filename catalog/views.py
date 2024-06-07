@@ -91,6 +91,11 @@ class ProductListView(ListView):
         context_data['object_list'] = list_product
         return context_data
 
+    def get_queryset(self):
+        print(self.args)
+        qveriset = super().get_queryset()[int(self.args) - 1 * 5:]
+        return super().get_queryset()
+
 
 class ProductDetailListView(DetailView):
     model = Product

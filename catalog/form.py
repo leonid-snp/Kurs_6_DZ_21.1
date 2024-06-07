@@ -43,20 +43,20 @@ class VersionForm(StyleFormMixin, ModelForm):
         model = Version
         fields = '__all__'
 
+    def clean_is_activ(self):
+        print(self.cleaned_data.get('is_activ'))
+        raise ValidationError("Может существовать только одна активная версия")
+        # active_count = sum(1 for form in self.forms if form.cleaned_data.get('is_activ', False))
+        # if active_count > 1:
+        #     print(123)
+        #     raise ValidationError("Может существовать только одна активная версия")
 
-# class VersionFormSet(BaseInlineFormSet):
-#     def clean(self):
-#         active_count = 0
-#         for form in self.forms:
-#             if form.cleaned_data.get('is_activ'):
-#                 active_count += 1
-#         if active_count > 1:
-#             raise ValidationError('Может существовать только одна активная версия!')
-#         super().clean()
 
 class VersionFormSet(BaseInlineFormSet):
-    def clean(self):
-        super().clean()
-        active_count = sum(1 for form in self.forms if form.cleaned_data.get('is_active', False))
-        if active_count > 1:
-            raise ValidationError("Может существовать только одна активная версия")
+    pass
+    # def clean(self):
+    #     super().clean()
+    #     active_count = sum(1 for form in self.forms if form.cleaned_data.get('is_activ', False))
+    #     if active_count > 1:
+    #         print(123)
+    #         raise ValidationError("Может существовать только одна активная версия")

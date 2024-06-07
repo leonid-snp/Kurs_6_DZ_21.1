@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
-from blog.functions.utils import send_email
+# from blog.functions.utils import send_email
 
 from blog.models import Blog
 

@@ -40,6 +40,7 @@
                             {% endif %}
                         </p>
                         {{ formset.management_form }}
+                        {% for form in formset.forms %}
                         {% if form.errors %}
                         <div class="alert alert-danger" role="alert">
                             <ul>
@@ -54,7 +55,6 @@
                             </ul>
                         </div>
                         {% endif %}
-                        {% for form in formset.forms %}
                         {{ form.as_p }}
                         {% if not forloop.last %}
                         <hr>

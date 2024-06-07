@@ -4,7 +4,7 @@ from catalog.models import NULLABLE
 
 
 class User(AbstractUser):
-    name = None
+    username = None
     email = models.EmailField(
         unique=True,
         verbose_name='Почта',
