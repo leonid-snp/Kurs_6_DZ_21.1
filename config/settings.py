@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+from blog.functions.utils import get_db_login
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +43,8 @@ INSTALLED_APPS = [
 
     'catalog',
     'blog',
+    'version',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -81,9 +86,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'orm',
         'USER': 'postgres',
-        'PASSWORD': 12345,
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
+        'PASSWORD': get_db_login('PASSWORD_DATABASE'),
+        'HOST': get_db_login('HOST'),
+        'PORT': get_db_login('PORT'),
     }
 }
 
@@ -136,3 +141,29 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
+
+CATALOG_PRODUCT_CLEAN = (
+    'казино', 'криптовалюта', 'крипта', 'биржа',
+    'дешево', 'бесплатно', 'обман', 'полиция', 'радар'
+)
+
+AUTH_USER_MODEL = 'users.User'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = get_db_login('LOGIN') + '@yandex.ru'
+EMAIL_HOST_PASSWORD = get_db_login('PASSWORD_EMAIL')
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
+
+NULLABLE = {"blank": True, "null": True}

@@ -21,9 +21,9 @@
                     <p class="card-text">
                         {{ object.content|slice:100 }}
                     </p>
-                    <a href="{% url 'blog:blog_detail' object.pk %}" class="btn btn-primary">Посмотреть</a>
-                    <a href="{% url 'blog:blog_edit' object.pk %}" class="btn btn-primary">Редактировать</a>
-                    <a href="{% url 'blog:blog_delete' object.pk %}" class="btn btn-primary">Удалить</a>
+                    <a href="{% url 'blog:blog_detail' object.slug %}" class="btn btn-primary">Посмотреть</a>
+                    <a href="{% url 'blog:blog_edit' object.slug %}" class="btn btn-primary">Редактировать</a>
+                    <a href="{% url 'blog:blog_delete' object.slug %}" class="btn btn-primary">Удалить</a>
                 </div>
             </div>
         </div>
