@@ -1,10 +1,10 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from catalog.models import NULLABLE
+from config.settings import NULLABLE
 
 
 class User(AbstractUser):
-    name = None
+    username = None
     email = models.EmailField(
         unique=True,
         verbose_name='Почта',
@@ -27,6 +27,11 @@ class User(AbstractUser):
         max_length=40,
         verbose_name='Страна',
         help_text='Введите название страны',
+        **NULLABLE
+    )
+    token = models.CharField(
+        max_length=100,
+        verbose_name='Token',
         **NULLABLE
     )
 

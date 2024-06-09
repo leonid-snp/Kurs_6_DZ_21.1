@@ -1,4 +1,4 @@
-from django.core.exceptions import ValidationError
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import inlineformset_factory
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView
@@ -7,7 +7,7 @@ from catalog.models import Product, Contact
 from version.models import Version
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy("catalog:page_1")
@@ -31,10 +31,15 @@ class ProductCreateView(CreateView):
             formset.instance = self.object
             formset.save()
 
+        dog = form.save()
+        user = self.request.user
+        dog.owner = user
+        dog.save()
+
         return super().form_valid(form)
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy("catalog:page_1")
@@ -73,6 +78,7 @@ class ProductUpdateView(UpdateView):
 
 
 class ProductListView(ListView):
+    paginate_by = 3
     model = Product
 
     def get_context_data(self, *args, **kwargs):
@@ -92,15 +98,15 @@ class ProductListView(ListView):
         return context_data
 
 
-class ProductDetailListView(DetailView):
+class ProductDetailListView(LoginRequiredMixin, DetailView):
     model = Product
 
 
-class ContactListView(ListView):
+class ContactListView(LoginRequiredMixin, ListView):
     model = Contact
 
 
-class ContactCreateView(CreateView):
+class ContactCreateView(LoginRequiredMixin, CreateView):
     model = Contact
     fields = ("name", "phone", "message")
     success_url = reverse_lazy("catalog:contacts_list")

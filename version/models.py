@@ -22,7 +22,7 @@ class Version(models.Model):
     is_activ = models.BooleanField(
         verbose_name='Статус',
         help_text='Введите статус версии',
-        default=True
+        default=True,
     )
 
     def __str__(self):

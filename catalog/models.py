@@ -1,8 +1,6 @@
 from django.db import models
-from datetime import datetime
-
-
-NULLABLE = {"blank": True, "null": True}
+from users.models import User
+from config.settings import NULLABLE
 
 
 class Category(models.Model):
@@ -61,6 +59,13 @@ class Product(models.Model):
     )
     updated_at = models.DateField(
         auto_now=True,
+        **NULLABLE
+    )
+    owner = models.ForeignKey(
+        User,
+        verbose_name='Владелец',
+        help_text='Укажите владельца',
+        on_delete=models.SET_NULL,
         **NULLABLE
     )
 

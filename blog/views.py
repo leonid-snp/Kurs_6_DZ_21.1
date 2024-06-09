@@ -1,12 +1,14 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
-from blog.functions.utils import send_email
 
 from blog.models import Blog
+from config.settings import EMAIL_HOST_USER
 
 
-class BlogCreateView(CreateView):
+class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
     fields = (
         "title", "content", "photo",
@@ -23,7 +25,7 @@ class BlogCreateView(CreateView):
         return super().form_valid(form)
 
 
-class BlogUpdateView(UpdateView):
+class BlogUpdateView(LoginRequiredMixin, UpdateView):
     model = Blog
     fields = (
         "title", "content", "photo",
@@ -51,18 +53,25 @@ class BlogListView(ListView):
         return queryset
 
 
-class BlogDetailView(DetailView):
+class BlogDetailView(LoginRequiredMixin, DetailView):
     model = Blog
 
-    def get_object(self, queryset=None):
+    def get_object(self, queryset=None, user=None):
         self.object = super().get_object(queryset)
         self.object.views_count += 1
         self.object.save()
         if self.object.views_count == 100:
-            send_email(self.object)
+            send_mail(
+                subject='Поздравляю!',
+                message=f'Поздравляю ваша статья '
+                        f'{self.object.title} набрала '
+                        f'{self.object.views_count} просмотров!!!',
+                from_email=EMAIL_HOST_USER,
+                recipient_list=[user.email]
+            )
         return self.object
 
 
-class BlogDeletelView(DeleteView):
+class BlogDeletelView(LoginRequiredMixin, DeleteView):
     model = Blog
     success_url = reverse_lazy("blog:blog_list")
