@@ -1,5 +1,5 @@
 from django.db import models
-from catalog.models import NULLABLE
+from config.settings import NULLABLE
 
 
 class Blog(models.Model):

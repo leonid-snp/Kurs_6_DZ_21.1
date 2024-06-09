@@ -1,4 +1,3 @@
-from django import forms
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm, BooleanField, BaseInlineFormSet
 from catalog.models import Product
@@ -19,7 +18,7 @@ class StyleFormMixin:
 class ProductForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Product
-        exclude = ('created_at',)
+        exclude = ('created_at', 'owner')
 
     def clean_name(self):
         clean_data = self.cleaned_data.get('name')
@@ -54,9 +53,3 @@ class VersionForm(StyleFormMixin, ModelForm):
 
 class VersionFormSet(BaseInlineFormSet):
     pass
-    # def clean(self):
-    #     super().clean()
-    #     active_count = sum(1 for form in self.forms if form.cleaned_data.get('is_activ', False))
-    #     if active_count > 1:
-    #         print(123)
-    #         raise ValidationError("Может существовать только одна активная версия")
