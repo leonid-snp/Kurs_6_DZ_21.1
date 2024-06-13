@@ -68,6 +68,12 @@ class Product(models.Model):
         on_delete=models.SET_NULL,
         **NULLABLE
     )
+    is_published = models.BooleanField(
+        verbose_name="Публикация",
+        help_text="Укажите статус публикации",
+        default=True,
+        **NULLABLE
+    )
 
     def __str__(self):
         return self.name
@@ -78,6 +84,11 @@ class Product(models.Model):
         ordering = [
             "category", "name", "price",
             "created_at", "updated_at"
+        ]
+        permissions = [
+            ('unpublish_a_product', 'Unpublish a product'),
+            ('change_description,', 'Change description'),
+            ('change_category', 'Change category')
         ]
 
 
