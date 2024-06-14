@@ -87,8 +87,8 @@ class Product(models.Model):
         ]
         permissions = [
             ('unpublish_a_product', 'Unpublish a product'),
-            ('change_description,', 'Change description'),
-            ('change_category', 'Change category')
+            ('change_product_description,', 'Change description'),
+            ('change_product_category', 'Change product category')
         ]
 
 
