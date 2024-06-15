@@ -49,3 +49,8 @@ class Blog(models.Model):
     class Meta:
         verbose_name = "Блог"
         verbose_name_plural = "Блоги"
+        permissions = [
+            ('change_content_blog', 'Change content blog'),
+            ('change_title_blog', 'Change title blog'),
+            ('unpublish_a_blog', 'Unpublish a blog')
+        ]

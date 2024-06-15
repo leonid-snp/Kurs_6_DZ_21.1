@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -160,6 +160,7 @@ EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = get_db_login('LOGIN') + '@yandex.ru'
+EMAIL_TO = get_db_login('EMAIL_TO')
 EMAIL_HOST_PASSWORD = get_db_login('PASSWORD_EMAIL')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -167,3 +168,5 @@ SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
 
 NULLABLE = {"blank": True, "null": True}
+
+LOGIN_URL = '/users/'
