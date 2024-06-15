@@ -1,19 +1,19 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
 
+from blog.form import BlogForm, BlogContentManagerForm
 from blog.models import Blog
-from config.settings import EMAIL_HOST_USER
+from config.settings import EMAIL_HOST_USER, EMAIL_TO
 
 
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
-    fields = (
-        "title", "content", "photo",
-        "is_published"
-    )
+    class_form = BlogForm
+    fields = ('title', 'content', 'photo')
     success_url = reverse_lazy("blog:blog_list")
 
     def form_valid(self, form):
@@ -27,10 +27,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
 
 class BlogUpdateView(LoginRequiredMixin, UpdateView):
     model = Blog
-    fields = (
-        "title", "content", "photo",
-        "is_published"
-    )
+    class_form = BlogForm
 
     def form_valid(self, form):
         if form.is_valid():
@@ -42,6 +39,15 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse("blog:blog_detail", args=[self.kwargs.get("pk")])
+
+    def get_form_class(self):
+        user = self.request.user
+        if user.is_superuser:
+            return BlogForm
+        elif user.has_perm('blog.change_content_blog') and user.has_perm('blog.change_title_blog') and user.has_perm('blog.unpublish_a_blog'):
+            return BlogContentManagerForm
+        else:
+            raise PermissionDenied
 
 
 class BlogListView(ListView):
@@ -56,7 +62,8 @@ class BlogListView(ListView):
 class BlogDetailView(LoginRequiredMixin, DetailView):
     model = Blog
 
-    def get_object(self, queryset=None, user=None):
+    def get_object(self, queryset=None):
+        user = self.request.user
         self.object = super().get_object(queryset)
         self.object.views_count += 1
         self.object.save()
@@ -67,7 +74,7 @@ class BlogDetailView(LoginRequiredMixin, DetailView):
                         f'{self.object.title} набрала '
                         f'{self.object.views_count} просмотров!!!',
                 from_email=EMAIL_HOST_USER,
-                recipient_list=[user.email]
+                recipient_list=[user.email, EMAIL_TO]
             )
         return self.object
 

@@ -2,6 +2,8 @@ from django.core.management import BaseCommand
 
 from catalog.function.work_with_file import open_fixture
 from catalog.models import Category, Product
+from blog.models import Blog
+from users.models import User
 
 
 class Command(BaseCommand):
@@ -35,7 +37,9 @@ class Command(BaseCommand):
                         photo=product.get("photo"),
                         price=product.get("price"),
                         created_at=product.get("created_at"),
-                        updated_at=product.get("updated_at"))
+                        updated_at=product.get("updated_at"),
+                        owner=product.get("owner"),
+                        is_published=product.get("is_published"))
             )
 
         Product.objects.bulk_create(product_for_create)

@@ -1,5 +1,95 @@
 [
   {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "moderator",
+      "permissions": [
+        51,
+        50,
+        45,
+        28
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+      "name": "admin",
+      "permissions": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        5,
+        6,
+        7,
+        8,
+        33,
+        34,
+        35,
+        36,
+        21,
+        22,
+        23,
+        24,
+        29,
+        30,
+        31,
+        32,
+        25,
+        47,
+        46,
+        26,
+        27,
+        45,
+        28,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        41,
+        42,
+        43,
+        44,
+        37,
+        38,
+        39,
+        40
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 4,
+    "fields": {
+      "name": "content-manager",
+      "permissions": [
+        52,
+        53,
+        54,
+        36
+      ]
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "8yvzto48pw3dpt1m1cl93dnaxs6kfp1u",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyHQBUI9evcbyC4sUjWQlPbU-O-2SQ-auc17M5sIuC4lrJ3nMCVxFVpcfjvC-OJ6gPTE-mgytrrME8lDkSft8t4Sv2-n-3dQsJd9jUppM6LGqNiZlLNnPRjlgBSNmZQnZzkBeKDsLeeBImrj9oAFNlp8vuYAN7g:1sIL72:6kKqvNfoO4mvQg9Lb0d_eJE4jCG82SyRS1KmwqAwliY",
+      "expire_date": "2024-06-29T04:34:00.537Z"
+    }
+  },
+  {
     "model": "catalog.category",
     "pk": 10,
     "fields": {
@@ -156,6 +246,114 @@
       "updated_at": "2024-06-09",
       "owner": null,
       "is_published": true
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 1,
+    "fields": {
+      "title": "Природа",
+      "slug": "priroda",
+      "content": "Земля — единственная известная в настоящий момент планета, на которой есть жизнь. Её природные особенности являются предметом многих научных исследований. Это третья по счёту от Солнца планета Солнечной системы и крупнейшая по диаметру, массе и плотности среди планет земной группы. Основные климатические особенности Земли заключаются в наличии двух больших полярных регионов, двух относительно узких умеренных зон и одного широкого экваториально-тропического региона[3]. Количество осадков на планете варьируется в широких пределах в зависимости от местоположения и колеблется от миллиметра до нескольких метров осадков в год. Около 71 % поверхности Земли занимает океан. Остальная часть состоит из континентов и островов, причём большая часть суши, населённой людьми, находится в северном полушарии.",
+      "photo": "blogs/nature.jpg",
+      "created_at": "2024-06-14",
+      "is_published": true,
+      "views_count": 2
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 2,
+    "fields": {
+      "title": "Формула 1",
+      "slug": "formula-1",
+      "content": "Название исторически происходит от набора технических правил (так называемой «формулы»; при этом обозначение «Формула-1» — одна из нескольких таких «формул», наряду с «Формулой-2» и др.), которому должны соответствовать автомобили всех участников[1]. С 1950 по 1980 год проводился чемпионат мира для гонщиков (англ. World Championship for Drivers), на смену которому в 1981 году пришёл чемпионат мира Формулы-1 (англ. Formula 1 World Championship), позже получивший современное название: FIA Formula One World Championship[2][3]. Турнир находится под управлением Международной автомобильной федерации, а ответственной за коммерческое продвижение на данный момент является группа компаний Formula One Group.",
+      "photo": "blogs/1200px-Räikkönen_Ferrari_SF71H_Testing_Barcelona.jpg",
+      "created_at": "2024-06-14",
+      "is_published": true,
+      "views_count": 3
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 3,
+    "fields": {
+      "title": "Космос",
+      "slug": "kosmos",
+      "content": "Косми́ческое простра́нство, ко́смос (др.-греч. κόσμος — «упорядоченность», «порядок») — относительно пустые участки Вселенной, которые лежат вне границ атмосфер небесных тел. Космос не является абсолютно пустым пространством: в нём есть, хотя и с очень низкой плотностью, межзвёздное вещество (преимущественно ионы и атомы водорода), космические лучи и электромагнитное излучение, а также гипотетическая тёмная материя.",
+      "photo": "blogs/ea068135c5.jpg",
+      "created_at": "2024-06-14",
+      "is_published": true,
+      "views_count": 2
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$vHNgvCCM91FGgqsWHQV3US$OcflffsTh72xhMmDhmNcPRrgFRdWAjT8Ll+mRl619sw=",
+      "last_login": "2024-06-15T04:34:00.536Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "SkyPro",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-06-06T04:26:11Z",
+      "email": "admin@sky.pro",
+      "photo": "",
+      "phone": null,
+      "country": null,
+      "token": null,
+      "groups": [
+        3
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$sgOFETRIelFZVD3dniV0vy$h1El4WOpzvWp30F7aNW3y5p8avbFW2ZULIyuYTHr32g=",
+      "last_login": "2024-06-15T04:33:23.066Z",
+      "is_superuser": false,
+      "first_name": "test",
+      "last_name": "test",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-06-07T05:26:53Z",
+      "email": "user1@test.ru",
+      "photo": "",
+      "phone": "+7(355)644-55-44",
+      "country": "Russia",
+      "token": "f7a4ef43cc16cbcc308e1749778b79d3",
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$unZux843xiQ17uy1feosxx$OZzxFUC6TzbWDv9s4+AtEa34kyheCv/sL6G9oudkMoU=",
+      "last_login": "2024-06-14T06:16:32.208Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-06-07T07:37:55Z",
+      "email": "user2@test.ru",
+      "photo": "",
+      "phone": null,
+      "country": null,
+      "token": "4e84dbfcdd4d7ed27de9d3075b22c04c",
+      "groups": [
+        4
+      ],
+      "user_permissions": []
     }
   }
 ]
