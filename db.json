@@ -1,0 +1,359 @@
+[
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "moderator",
+      "permissions": [
+        51,
+        50,
+        45,
+        28
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+      "name": "admin",
+      "permissions": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        5,
+        6,
+        7,
+        8,
+        33,
+        34,
+        35,
+        36,
+        21,
+        22,
+        23,
+        24,
+        29,
+        30,
+        31,
+        32,
+        25,
+        47,
+        46,
+        26,
+        27,
+        45,
+        28,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        41,
+        42,
+        43,
+        44,
+        37,
+        38,
+        39,
+        40
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 4,
+    "fields": {
+      "name": "content-manager",
+      "permissions": [
+        52,
+        53,
+        54,
+        36
+      ]
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "8yvzto48pw3dpt1m1cl93dnaxs6kfp1u",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyHQBUI9evcbyC4sUjWQlPbU-O-2SQ-auc17M5sIuC4lrJ3nMCVxFVpcfjvC-OJ6gPTE-mgytrrME8lDkSft8t4Sv2-n-3dQsJd9jUppM6LGqNiZlLNnPRjlgBSNmZQnZzkBeKDsLeeBImrj9oAFNlp8vuYAN7g:1sIL72:6kKqvNfoO4mvQg9Lb0d_eJE4jCG82SyRS1KmwqAwliY",
+      "expire_date": "2024-06-29T04:34:00.537Z"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 10,
+    "fields": {
+      "name": "Смартфоны",
+      "description": ""
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 11,
+    "fields": {
+      "name": "Телевизоры",
+      "description": ""
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 12,
+    "fields": {
+      "name": "Пылесосы",
+      "description": ""
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+      "name": "Poco F5",
+      "description": "Самые дешёвые в этой подборке — топовые среднебюджетники 2023 года. Это универсальные модели для тех, кто хочет получить мощные устройства, но не готов потратить на них больше 60 000 рублей.",
+      "photo": "products/xiaomi-poco-f5-256gb-12gb-dual-5g-blue-global-1_Oxkx3q4.jpg",
+      "category": 10,
+      "price": 35000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-09",
+      "owner": null,
+      "is_published": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+      "name": "OnePlus Nord 3",
+      "description": "Современные телефоны по мощности с лёгкостью обгоняют большинство компьютеров 10-15 летней давности. Кто в то время мог мечтать о смартфоне с 16 Гб оперативной памяти? А сегодня это характеристика устройства всего за 45 000 рублей.",
+      "photo": "products/oneplus-nord-3-256gb-16gb-dual-5g-green-global-3_CsQkr7k.jpg",
+      "category": 10,
+      "price": 39000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-09",
+      "owner": null,
+      "is_published": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 13,
+    "fields": {
+      "name": "Vivo IQOO Neo 9 Pro",
+      "description": "Компания VIVO сделала подарок пользователям в декабре 2023 и запустила продажи новинки IQOO Neo 9 Pro. Главные фишки смартфона: самый мощный чип на январь 2024 года и цена до 60 000 рублей.",
+      "photo": "products/3878ac66f1fd453daf0cf3d83fb30290.jpg",
+      "category": 10,
+      "price": 40000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-09",
+      "owner": null,
+      "is_published": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 14,
+    "fields": {
+      "name": "K70 Pro",
+      "description": "Вторую строчку в рейтинге самых мощных процессоров для смартфонов занимает Snapdragon 8 Gen 3. Стоит отметить, что он лишь слегка уступает Dimensity 9300 в некоторых тестах. И стоять он будет на топовых флагманах этого года. А самым доступным телефоном с этим чипом стала новинка от Redmi — K70 Pro.",
+      "photo": "products/6876484566_cH7RLPl.jpg",
+      "category": 10,
+      "price": 32000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-14",
+      "owner": 6,
+      "is_published": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 15,
+    "fields": {
+      "name": "LG 43UR78006LK",
+      "description": "Открывает наш рейтинг лучших телевизоров «недорого-сердитый» 4К телевизор бюджетной 7 серии линейки 2023 года компании LG. Дизайн утончённый. Как в плане минимализма экранных рамок цвета «металлический серый» (отчётливо выделяется лишь нижняя), так и с учётом небольшой глубины корпуса. Подставка – пара ножек-уголков. Сборка – Польша.",
+      "photo": "products/6624489602_288h1Yd.jpg",
+      "category": 11,
+      "price": 42000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-09",
+      "owner": null,
+      "is_published": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 16,
+    "fields": {
+      "name": "Karcher WD 3",
+      "description": "Хозяйственный пылесос Karcher WD 3 S V-17/4/20 1.628-135.0 предназначен для уборки помещения.\r\n\r\nОснащен фильтром высокого класса, за счет чего эффективен при сборе мелкой пыли.\r\n\r\nИмеет на корпусе эргономичную рукоятку, благодаря чему прост в перемещении.\r\n\r\nКомплект сменных насадок позволяет настроить пылесос под различные условия.",
+      "photo": "products/Вставленное_изображение_H67MVZJ.jpg",
+      "category": 12,
+      "price": 12000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-09",
+      "owner": null,
+      "is_published": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 17,
+    "fields": {
+      "name": "Philips UHD 55PUS8848/12",
+      "description": "Возможно, кто-то будет удивлён тем фактом, что китайский, пусть польской сборки, LED-телевизор (а ТВ продукция под торговой маркой Philips выпускается компанией TPV из Гонг-Конга) в нашем рейтинге лучших телевизоров оказался выше, чем LED «корейцы» 8 серии. На то есть объективные причины.",
+      "photo": "products/Вставленное_изображение_HZIlW6j.jpg",
+      "category": 11,
+      "price": 55000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-09",
+      "owner": null,
+      "is_published": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 18,
+    "fields": {
+      "name": "Nothing Phone 2",
+      "description": "Первая модель этого бренда стала очень популярной благодаря невысокой цене, стильному дизайну и отличным характеристикам. Второе поколение полюбившегося флагмана вышло летом 2023-го. Модель оснащена всеми характеристиками, которые позволяют ей конкурировать с новинками этого года.",
+      "photo": "products/Вставленное_изображение.jpg",
+      "category": 10,
+      "price": 50000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-14",
+      "owner": 12,
+      "is_published": true
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 19,
+    "fields": {
+      "name": "Centek",
+      "description": "Пылесос Centek циклон CT-2524 Black/Red обеспечивает и комфортную уборку.\r\n\r\nФильтр НЕРА не пропускает загрязнения обратно в комнату, что дает качественный результат уборки.\r\n\r\nКрупные колеса агрегата без труда маневрируют по квартире и препятствуют его переворачиванию в процессе работы.\r\n\r\nТелескопическая трубка изготовлена из металла, что гарантирует ее износостойкость.",
+      "photo": "products/51722249.jpg",
+      "category": 12,
+      "price": 5000,
+      "created_at": "2024-06-09",
+      "updated_at": "2024-06-09",
+      "owner": null,
+      "is_published": true
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 1,
+    "fields": {
+      "title": "Природа",
+      "slug": "priroda",
+      "content": "Земля — единственная известная в настоящий момент планета, на которой есть жизнь. Её природные особенности являются предметом многих научных исследований. Это третья по счёту от Солнца планета Солнечной системы и крупнейшая по диаметру, массе и плотности среди планет земной группы. Основные климатические особенности Земли заключаются в наличии двух больших полярных регионов, двух относительно узких умеренных зон и одного широкого экваториально-тропического региона[3]. Количество осадков на планете варьируется в широких пределах в зависимости от местоположения и колеблется от миллиметра до нескольких метров осадков в год. Около 71 % поверхности Земли занимает океан. Остальная часть состоит из континентов и островов, причём большая часть суши, населённой людьми, находится в северном полушарии.",
+      "photo": "blogs/nature.jpg",
+      "created_at": "2024-06-14",
+      "is_published": true,
+      "views_count": 2
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 2,
+    "fields": {
+      "title": "Формула 1",
+      "slug": "formula-1",
+      "content": "Название исторически происходит от набора технических правил (так называемой «формулы»; при этом обозначение «Формула-1» — одна из нескольких таких «формул», наряду с «Формулой-2» и др.), которому должны соответствовать автомобили всех участников[1]. С 1950 по 1980 год проводился чемпионат мира для гонщиков (англ. World Championship for Drivers), на смену которому в 1981 году пришёл чемпионат мира Формулы-1 (англ. Formula 1 World Championship), позже получивший современное название: FIA Formula One World Championship[2][3]. Турнир находится под управлением Международной автомобильной федерации, а ответственной за коммерческое продвижение на данный момент является группа компаний Formula One Group.",
+      "photo": "blogs/1200px-Räikkönen_Ferrari_SF71H_Testing_Barcelona.jpg",
+      "created_at": "2024-06-14",
+      "is_published": true,
+      "views_count": 3
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 3,
+    "fields": {
+      "title": "Космос",
+      "slug": "kosmos",
+      "content": "Косми́ческое простра́нство, ко́смос (др.-греч. κόσμος — «упорядоченность», «порядок») — относительно пустые участки Вселенной, которые лежат вне границ атмосфер небесных тел. Космос не является абсолютно пустым пространством: в нём есть, хотя и с очень низкой плотностью, межзвёздное вещество (преимущественно ионы и атомы водорода), космические лучи и электромагнитное излучение, а также гипотетическая тёмная материя.",
+      "photo": "blogs/ea068135c5.jpg",
+      "created_at": "2024-06-14",
+      "is_published": true,
+      "views_count": 2
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$vHNgvCCM91FGgqsWHQV3US$OcflffsTh72xhMmDhmNcPRrgFRdWAjT8Ll+mRl619sw=",
+      "last_login": "2024-06-15T04:34:00.536Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "SkyPro",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-06-06T04:26:11Z",
+      "email": "admin@sky.pro",
+      "photo": "",
+      "phone": null,
+      "country": null,
+      "token": null,
+      "groups": [
+        3
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$sgOFETRIelFZVD3dniV0vy$h1El4WOpzvWp30F7aNW3y5p8avbFW2ZULIyuYTHr32g=",
+      "last_login": "2024-06-15T04:33:23.066Z",
+      "is_superuser": false,
+      "first_name": "test",
+      "last_name": "test",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-06-07T05:26:53Z",
+      "email": "user1@test.ru",
+      "photo": "",
+      "phone": "+7(355)644-55-44",
+      "country": "Russia",
+      "token": "f7a4ef43cc16cbcc308e1749778b79d3",
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$unZux843xiQ17uy1feosxx$OZzxFUC6TzbWDv9s4+AtEa34kyheCv/sL6G9oudkMoU=",
+      "last_login": "2024-06-14T06:16:32.208Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-06-07T07:37:55Z",
+      "email": "user2@test.ru",
+      "photo": "",
+      "phone": null,
+      "country": null,
+      "token": "4e84dbfcdd4d7ed27de9d3075b22c04c",
+      "groups": [
+        4
+      ],
+      "user_permissions": []
+    }
+  }
+]
