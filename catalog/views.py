@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView
 from catalog.form import ProductForm, VersionForm, VersionFormSet, ProductModeratorForm
 from catalog.models import Product, Contact
+from catalog.services import get_product_from_cache
 from version.models import Version
 
 
@@ -107,6 +108,9 @@ class ProductListView(ListView):
 
         context_data['object_list'] = list_product
         return context_data
+
+    def get_queryset(self):
+        return get_product_from_cache()
 
 
 class ProductDetailListView(LoginRequiredMixin, DetailView):
